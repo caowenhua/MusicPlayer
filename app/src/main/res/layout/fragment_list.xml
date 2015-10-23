@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <ImageButton
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:id="@+id/imgbtn_locate"
+        android:scaleType="centerInside"
+        android:layout_alignParentRight="true"
+        android:layout_margin="5dp"
+        android:background="@null"
+        android:src="@drawable/selector_btn_location"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/edt_search"
+        android:layout_toLeftOf="@+id/imgbtn_locate"
+        android:background="@drawable/bg_f9_tran_bigcon"
+        android:textSize="14sp"
+        android:gravity="center_vertical"
+        android:padding="10dp"
+        android:textColor="#f0f0f0"
+        android:textColorHint="#888888"
+        android:hint="请输入关键字"
+        android:layout_margin="5dp"
+        android:singleLine="true"
+        />
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/lv_music"
+        android:layout_below="@+id/imgbtn_locate"
+        android:listSelector="@android:color/transparent"
+        android:divider="@color/gray_55"
+        android:dividerHeight="1px"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:id="@+id/tv_tip"
+        android:textColor="@color/white_f9"
+        android:textSize="16sp"
+        android:text="暂无可用音乐"
+        android:visibility="gone"
+        />
+</RelativeLayout>

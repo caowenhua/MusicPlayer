@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="64dp"
+    android:background="@mipmap/background"
+    >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:text=""
+        android:textSize="16sp"
+        android:textColor="@color/white_f9"
+        android:id="@+id/tv_name"
+        android:maxLines="2"
+        android:gravity="left"
+        android:ellipsize="end"
+        android:padding="5dp"
+        android:layout_toLeftOf="@+id/imgbtn_play"
+        />
+
+    <ImageButton
+        android:layout_centerVertical="true"
+        android:id="@+id/imgbtn_play"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:scaleType="centerInside"
+        android:background="@null"
+        android:layout_margin="3dp"
+        android:layout_toLeftOf="@+id/imgbtn_next"
+        android:src="@mipmap/note_btn_play"
+        />
+
+    <ImageButton
+        android:layout_centerVertical="true"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:scaleType="centerInside"
+        android:background="@null"
+        android:id="@+id/imgbtn_next"
+        android:layout_margin="3dp"
+        android:layout_toLeftOf="@+id/imgbtn_x"
+        android:src="@mipmap/note_btn_next"
+        />
+
+    <ImageButton
+        android:layout_centerVertical="true"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:scaleType="centerInside"
+        android:background="@null"
+        android:id="@+id/imgbtn_x"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="10dp"
+        android:src="@mipmap/x"
+        />
+
+</RelativeLayout>

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:layout_margin="10dp"
+        android:background="@drawable/bg_f9_tran_con"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="通知栏显示"
+            android:textColor="@color/white_f9"
+            android:textSize="16sp"
+            android:layout_marginLeft="10dp"
+            />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/img_switch"
+            android:scaleType="centerInside"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            />
+
+    </RelativeLayout>
+
+     <Button
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:background="@drawable/selector_f9_con"
+         android:id="@+id/btn_auto"
+         android:textColor="@drawable/selector_text_gray_f9"
+         android:textSize="16sp"
+         android:text="自动搜索歌曲"
+         android:padding="10dp"
+         android:layout_margin="10dp"
+         />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/selector_f9_con"
+        android:id="@+id/btn_mex"
+        android:textColor="@drawable/selector_text_gray_f9"
+        android:textSize="16sp"
+        android:text="手动搜索歌曲"
+        android:padding="10dp"
+        android:layout_margin="10dp"
+        />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/selector_f9_con"
+        android:id="@+id/btn_clean"
+        android:textColor="@drawable/selector_text_gray_f9"
+        android:textSize="16sp"
+        android:text="清空播放列表"
+        android:padding="10dp"
+        android:layout_margin="10dp"
+        />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/selector_f9_con"
+        android:id="@+id/btn_download"
+        android:textColor="@drawable/selector_text_gray_f9"
+        android:textSize="16sp"
+        android:text="下载管理"
+        android:padding="10dp"
+        android:layout_margin="10dp"
+        />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/selector_f9_con"
+        android:id="@+id/btn_exit"
+        android:textColor="@drawable/selector_text_gray_f9"
+        android:textSize="16sp"
+        android:text="退出"
+        android:padding="10dp"
+        android:layout_margin="10dp"
+        />
+
+</LinearLayout>

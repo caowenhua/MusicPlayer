@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/background"
+    >
+    
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#20ffffff"
+        android:id="@+id/rlt_top"
+        >
+        <ImageButton
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:id="@+id/imgbtn_back"
+            android:src="@mipmap/back"
+            android:scaleType="centerInside"
+            android:background="@null"
+            />
+
+        <ImageButton
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:id="@+id/imgbtn_download"
+            android:src="@mipmap/download"
+            android:layout_alignParentRight="true"
+            android:scaleType="centerInside"
+            android:background="@null"
+            android:padding="15dp"
+            />
+    </RelativeLayout>
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/lv_list"
+        android:layout_below="@+id/rlt_top"
+        android:listSelector="@android:color/transparent"
+        android:divider="@color/gray_55"
+        android:dividerHeight="1px"
+        />
+</RelativeLayout>

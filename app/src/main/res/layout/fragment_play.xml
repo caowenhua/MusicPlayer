@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!--
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/img_cover"
+            android:scaleType="centerInside"
+            android:layout_centerInParent="true"
+            />
+        -->
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/img_disk"
+            android:layout_centerHorizontal="true"
+            android:scaleType="centerInside"
+            android:src="@mipmap/disk"
+            />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/img_needle"
+            android:scaleType="centerInside"
+            android:src="@mipmap/play_needle"
+            />
+    </RelativeLayout>
+
+
+
+    <org.yekeqi.widget.MarqueeTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_name"
+        android:layout_above="@+id/tv_time"
+        android:textColor="@color/white_f9"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:singleLine="true"
+        android:ellipsize="marquee"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_time"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@+id/seekbar"
+        android:textColor="@color/cd"
+        android:textSize="16sp"
+        android:text="--:--  /  --:--"
+        />
+
+    <!--
+        android:thumb="@drawable/selector_btn_thumb"
+        android:progressDrawable="@drawable/seekbar"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+    -->
+    <SeekBar
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:id="@+id/seekbar"
+        android:layout_above="@+id/imgbtn_play"
+        />
+
+    <ImageButton
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/imgbtn_play"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:scaleType="centerInside"
+        android:background="@null"
+        android:layout_margin="5dp"
+        android:src="@drawable/selector_btn_play"
+        />
+
+    <ImageButton
+        android:layout_alignParentBottom="true"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:scaleType="centerInside"
+        android:background="@null"
+        android:id="@+id/imgbtn_next"
+        android:layout_margin="5dp"
+        android:layout_toRightOf="@+id/imgbtn_play"
+        android:src="@drawable/selector_btn_next"
+        />
+
+    <ImageButton
+        android:layout_alignParentBottom="true"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:scaleType="centerInside"
+        android:background="@null"
+        android:id="@+id/imgbtn_pre"
+        android:layout_margin="5dp"
+        android:layout_toLeftOf="@+id/imgbtn_play"
+        android:src="@drawable/selector_btn_pre"
+        />
+
+    <ImageButton
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:scaleType="centerInside"
+        android:background="@null"
+        android:id="@+id/imgbtn_loop"
+        android:layout_margin="5dp"
+        />
+
+</RelativeLayout>

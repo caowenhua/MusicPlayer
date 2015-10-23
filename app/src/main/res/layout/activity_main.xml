@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="@mipmap/background"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:id="@+id/llt_top"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:id="@+id/img_play"
+            android:scaleType="centerInside"
+            android:src="@mipmap/actionbar_menu_icn_alb"
+            />
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:id="@+id/img_list"
+            android:scaleType="centerInside"
+            android:src="@mipmap/actionbar_menu_icn_edit"
+            />
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:id="@+id/img_search"
+            android:scaleType="centerInside"
+            android:src="@mipmap/actionbar_menu_icn_quality"
+            />
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:id="@+id/img_setting"
+            android:scaleType="centerInside"
+            android:src="@mipmap/actionbar_menu_icn_set"
+            />
+    </LinearLayout>
+
+    <View
+        android:layout_width="80dp"
+        android:layout_height="3dp"
+        android:id="@+id/view_moving"
+        android:layout_below="@+id/llt_top"
+        android:background="@color/e1"
+        />
+
+    <android.support.v4.view.ViewPager
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/pager_main"
+        android:layout_below="@+id/llt_top"
+        android:layout_marginTop="5dp"
+        />
+</RelativeLayout>
