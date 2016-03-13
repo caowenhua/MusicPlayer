@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import org.yekeqi.R;
@@ -90,6 +91,7 @@ public class DownloadedAdapter extends BaseExpandableListAdapter {
             holder.tv_name = (TextView) convertView.findViewById(R.id.tv_name);
             holder.tv_length = (TextView) convertView.findViewById(R.id.tv_length);
             holder.img_status = (ImageView) convertView.findViewById(R.id.img_status);
+            holder.progressBar = (ProgressBar) convertView.findViewById(R.id.progressBar);
             convertView.setTag(holder);
         }
         else{
@@ -99,11 +101,14 @@ public class DownloadedAdapter extends BaseExpandableListAdapter {
             holder.tv_name.setText(downingBeanList.get(childPosition).getName());
             holder.tv_length.setText(HelpUtil.getSize(downingBeanList.get(childPosition).getLength()));
             holder.img_status.setVisibility(View.GONE);
+            holder.progressBar.setIndeterminate(true);
+            holder.progressBar.setVisibility(View.VISIBLE);
         }
         else{
             holder.tv_name.setText(downedBeanList.get(childPosition).getName());
             holder.tv_length.setText(HelpUtil.getSize(downedBeanList.get(childPosition).getLength()));
-            holder.img_status.setVisibility(View.GONE);
+            holder.img_status.setVisibility(View.VISIBLE);
+            holder.progressBar.setVisibility(View.GONE);
         }
         return convertView;
     }
@@ -117,5 +122,6 @@ public class DownloadedAdapter extends BaseExpandableListAdapter {
         TextView tv_name;
         TextView tv_length;
         ImageView img_status;
+        ProgressBar progressBar;
     }
 }

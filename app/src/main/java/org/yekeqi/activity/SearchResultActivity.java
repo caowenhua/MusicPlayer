@@ -101,9 +101,9 @@ public class SearchResultActivity extends BaseActivity implements OnClickListene
             super.onPostExecute(o);
             dialog.dismiss();
             if(response.getData() != null && response.getData() != null){
-                if(page == 1){
-                    songs.clear();
-                }
+//                if(page == 1){
+//                    songs.clear();
+//                }
                 for(int i=0 ; i<response.getData().size() ; i++){
                     if(response.getData().get(i).getAuditionList() == null ||
                             response.getData().get(i).getAuditionList().size() == 0){

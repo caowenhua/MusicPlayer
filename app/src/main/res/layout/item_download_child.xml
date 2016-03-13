@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/tv_name"
-        android:layout_toLeftOf="@+id/img_status"
+        android:layout_toLeftOf="@+id/pb"
         android:singleLine="true"
         android:textSize="16sp"
         android:textColor="@color/white_f9"
@@ -19,10 +19,20 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/tv_length"
-        android:layout_toLeftOf="@+id/img_status"
+        android:layout_toLeftOf="@+id/pb"
         android:layout_below="@+id/tv_name"
         android:textSize="14sp"
         android:textColor="@color/cd"
+        />
+
+    <ProgressBar
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@+id/img_status"
+        android:layout_alignParentRight="true"
+        android:id="@+id/progressBar"
+        android:indeterminate="true"
+        style="@style/MyProgressBar"
         />
 
     <ImageView

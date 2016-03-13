@@ -1,7 +1,7 @@
 package org.yekeqi.api;
 
+import android.app.Activity;
 import android.content.Context;
-import android.os.Looper;
 import android.widget.Toast;
 
 import org.apache.http.message.BasicNameValuePair;
@@ -11,8 +11,8 @@ import org.yekeqi.http.Response;
 import org.yekeqi.model.KeySearchResponse;
 import org.yekeqi.model.SongSearchResponse;
 import org.yekeqi.util.JsonUtils;
-import org.yekeqi.util.UrlUtil;
 
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -33,18 +33,6 @@ public class Api {
     public static enum Method {
         post, get
     }
-
-    /**
-     * @param method
-     *            请求方法，post或者get
-     * @param url
-     *            url
-     * @param params
-     *            请求参数,post方法才有,get设为null
-     * @param clz
-     *            返回的Response的类，必须是BaseResponse自己以及其子类
-     * @return clz的实例
-     */
 
     private <T extends Object> T request(Method method, String url,
                                  ArrayList<BasicNameValuePair> params, Class<?> clz) {
@@ -69,19 +57,43 @@ public class Api {
                 // JSONObject json = new JSONObject(s.asString());//转换为json格式
                 response = (T) JsonUtils.toBean(s.asString(), clz);
             } else {
-                Looper.prepare();
-                Toast.makeText(context, "服务器数据匹配失败", Toast.LENGTH_SHORT).show();
+//                Looper.prepare();
+                ((Activity)context).runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Toast.makeText(context, "服务器数据匹配失败", Toast.LENGTH_SHORT).show();
+                    }
+                });
+
             }
 
         } catch (IllegalStateException e) {
-            Looper.prepare();
-            Toast.makeText(context, "服务器错误", Toast.LENGTH_SHORT).show();
+            ((Activity)context).runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    Toast.makeText(context, "服务器错误", Toast.LENGTH_SHORT).show();
+                }
+            });
+//            Looper.prepare();
+//            Toast.makeText(context, "服务器错误", Toast.LENGTH_SHORT).show();
         } catch (HttpException e) {
-            Looper.prepare();
-            Toast.makeText(context, "连接超时", Toast.LENGTH_SHORT).show();
+            ((Activity)context).runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    Toast.makeText(context, "连接超时", Toast.LENGTH_SHORT).show();
+                }
+            });
+//            Looper.prepare();
+//            Toast.makeText(context, "连接超时", Toast.LENGTH_SHORT).show();
         } catch (Exception e) {
-            Looper.prepare();
-            Toast.makeText(context, "未知错误", Toast.LENGTH_SHORT).show();
+            ((Activity)context).runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    Toast.makeText(context, "未知错误", Toast.LENGTH_SHORT).show();
+                }
+            });
+//            Looper.prepare();
+//            Toast.makeText(context, "未知错误", Toast.LENGTH_SHORT).show();
         }
         return response;
     }
@@ -94,7 +106,9 @@ public class Api {
                 "&hid=5574435026331845&s=s200"+
                 "&alf=alf700145" +
                 "&imsi=&tid=0&net=2" +
-                "&q=" + UrlUtil.Utf8URLencode(key);
+                "&q=" + URLEncoder.encode(key);
+        //UrlUtil.Utf8URLencode(key);
+
 //        ArrayList<BasicNameValuePair> params = new ArrayList<BasicNameValuePair>();
 //        params.add(new BasicNameValuePair("uid", "860173012017731"));
 //        params.add(new BasicNameValuePair("f", "f508"));
@@ -124,7 +138,8 @@ public class Api {
                 "&s=s200&address=%E5%B9%BF%E4%B8%9C%E7%9C%81%E5%B9%BF%E5%B7%9E%E5%B8%82%E5%A4%A9%E6%B2%B3%E5%8C%BA%E8%A1%A1%E5%B1%B1%E8%B7%AF" +
                 "&ram=768108+kB&active=0&latitude=23.157738&language=zh&mid=MI-ONE%2BPlus&cpu_model=MIONE" +
                 "&page=" + page +
-                "&q=" + UrlUtil.Utf8URLencode(key);
+                "&q=" + URLEncoder.encode(key);
+        //+ UrlUtil.Utf8URLencode(key);
 
         SongSearchResponse response = request(Method.get, url, null, SongSearchResponse.class);
         return response;

@@ -76,28 +76,31 @@ public class SearchResultAdapter extends BaseAdapter {
             }
         }
         final int max = tmp;
-        SimpleDateFormat formatter = new SimpleDateFormat("mm:ss");
-        holder.tv_size.setText(formatter.format(list.get(position).getAuditionList().get(max).getDuration()) + "  ,  " +
-                HelpUtil.getSize(list.get(position).getAuditionList().get(max).getSize()));
-        holder.img_down.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                DowningBean bean = new DowningBean();
-                bean.setName(list.get(position).getName());
-                bean.setSinger(list.get(position).getSingerName());
-                bean.setUrl(list.get(position).getAuditionList().get(list.get(position).getAuditionList().size() - 1).getUrl());
-                bean.setLength(list.get(position).getAuditionList().get(list.get(position).getAuditionList().size() - 1).getSize());
-                bean.setSuffix(list.get(position).getAuditionList().get(list.get(position).getAuditionList().size() - 1).getSuffix());
-                bean.setDuration(list.get(position).getAuditionList().get(list.get(position).getAuditionList().size()-1).getDuration());
-                DowningDAO dao = DowningDAO.getInstance(context);
-                dao.add(bean);
-                Intent intent = new Intent(context, MusicService.class);
-                intent.putExtra(Params.OP, Params.OP_DOWNLOAD);
-                context.startService(intent);
-                Toast.makeText(context, "已加入下载队列", Toast.LENGTH_SHORT).show();
+        if (list.get(position).getAuditionList().size() > 0) {
+            SimpleDateFormat formatter = new SimpleDateFormat("mm:ss");
+            holder.tv_size.setText(formatter.format(list.get(position).getAuditionList().get(max).getDuration()) + "  ,  " +
+                    HelpUtil.getSize(list.get(position).getAuditionList().get(max).getSize()));
+            holder.img_down.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    DowningBean bean = new DowningBean();
+                    bean.setName(list.get(position).getName());
+                    bean.setSinger(list.get(position).getSingerName());
+                    bean.setUrl(list.get(position).getAuditionList().get(list.get(position).getAuditionList().size() - 1).getUrl());
+                    bean.setLength(list.get(position).getAuditionList().get(list.get(position).getAuditionList().size() - 1).getSize());
+                    bean.setSuffix(list.get(position).getAuditionList().get(list.get(position).getAuditionList().size() - 1).getSuffix());
+                    bean.setDuration(list.get(position).getAuditionList().get(list.get(position).getAuditionList().size()-1).getDuration());
+                    DowningDAO dao = DowningDAO.getInstance(context);
+                    dao.add(bean);
+                    Intent intent = new Intent(context, MusicService.class);
+                    intent.putExtra(Params.OP, Params.OP_DOWNLOAD);
+                    context.startService(intent);
+                    Toast.makeText(context, "已加入下载队列", Toast.LENGTH_SHORT).show();
 //                System.out.println(list.get(position).getAuditionList().get(max).getUrl());
-            }
-        });
+                }
+            });
+        }
+
         return convertView;
     }
 
